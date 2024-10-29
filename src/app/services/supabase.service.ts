@@ -26,6 +26,83 @@ export class SupabaseService {
     return data;
   }
 
+  async getProdutoresWithEmails() {
+    // 1. Busca os produtores
+    const { data: produtores, error: produtoresError } = await this.supabase
+      .from('produtores')
+      .select('*'); // Pegue todos os campos ou apenas os que você precisa
+
+    if (produtoresError) {
+      console.error('Erro ao buscar produtores:', produtoresError);
+      return null;
+    }
+
+    // 2. Busca os usuários (auth.users)
+    const { data: usuarios, error: usuariosError } = await this.supabase
+      .from('auth.users')
+      .select('id, email');
+
+    if (usuariosError) {
+      console.error('Erro ao buscar usuários:', usuariosError);
+      return null;
+    }
+
+    // 3. Combina os dados manualmente
+    const produtoresComEmail = produtores.map(produtor => {
+      const usuario = usuarios.find(user => user.id === produtor.user_id); // Ajuste conforme a chave de relacionamento
+      return {
+        ...produtor,
+        email: usuario ? usuario.email : null, // Adiciona o email do usuário
+      };
+    });
+
+    return produtoresComEmail; // Retorna os dados combinados
+  }
+
+  async getDadosProdutor(id: string) {
+    const {data, error} = await this.supabase
+    .from("produtores")
+    .select('*')
+    .eq('id',id)
+    .single()
+
+    return data;
+  }
+
+  async getDadosApiarios(id: string) {
+    const {data, error} = await this.supabase
+    .from("apiario")
+    .select('*')
+    .eq('produtor_id',id)
+    .eq('status',true)
+    .order('created_at')
+
+    return data;
+  }
+
+  async getDadosApiario(id: string) {
+    const {data, error} = await this.supabase
+    .from("apiario")
+    .select('*')
+    .eq('id',id)
+    .single()
+
+    return data;
+  }
+
+  async getDadosColmeias(id: string) {
+    const {data, error} = await this.supabase
+    .from("colmeia")
+    .select('*')
+    .eq('apiario_id',id)
+    .eq('status',true)
+    .order('created_at')
+
+    return data;
+  }
+
+
+
   // Exemplo de método para adicionar dados a uma tabela
   async addDataToTable(table: string, data: any) {
     const { error } = await this.supabase

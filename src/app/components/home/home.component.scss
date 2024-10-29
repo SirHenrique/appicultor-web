@@ -1,0 +1,26 @@
+h1 {
+  color: #DD8231;
+  font-size: 80px;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  flex-direction: column;
+}
+
+::ng-deep .p-datatable-header {
+  background-color: orange !important; /* Define o background como laranja */
+  color: white !important; /* Define a cor do texto como branco para contraste */
+  text-align: left; /* Alinha o texto à esquerda, pode ajustar conforme necessário */
+}
+
+.clickable-row {
+  cursor: pointer; /* Muda o cursor para uma mão ao passar o mouse */
+}
+
+.clickable-row:hover {
+  background-color: #f0f0f0; /* Muda a cor de fundo ao passar o mouse */
+}

@@ -1,0 +1,48 @@
+<div class="back-button" >
+  <i (click)="goBack()" class="pi pi-arrow-left" style="color: orange; font-size: 52px;"></i> <!-- Ícone da seta -->
+</div>
+
+<div class="content">
+  <div class="grid-container col-12">
+    <div class="grid col-12 flex gap-5 justify-content-center">
+      <div class="col-2">
+        <span class="col-12">Nome</span>
+        <div class="col-12 py-0">
+          <input [(ngModel)]="dadosProdutor.nome" [disabled]="true" [style]="'width:100%'" pInputText>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <span class="col-12">E-mail</span>
+        <div class="col-12 py-0">
+          <input [(ngModel)]="dadosProdutor.email" [disabled]="true" [style]="'width:100%'" pInputText>
+        </div>
+      </div>
+
+      <div class="col-1">
+        <span class="col-12">Estado</span>
+        <div class="col-12 py-0">
+          <input [(ngModel)]="dadosProdutor.estado" [disabled]="true" [style]="'width:100%'" pInputText>
+        </div>
+      </div>
+
+      <div class="col-2">
+        <span class="col-12">Cidade</span>
+        <div class="col-12 py-0">
+          <input [(ngModel)]="dadosProdutor.municipio" [disabled]="true" [style]="'width:100%'" pInputText>
+        </div>
+      </div>
+    </div>
+
+    <!-- Título abaixo da grid -->
+    <h1 style="text-align: center; margin-top: 10px; color: #DD8231;font-size: 60px;">Apiários</h1>
+    <div class="flex flex-wrap gap-3 justify-content-center">
+      <!-- Cards dos apiários -->
+      <div (click)="navigateToDetail(apiario.id)" class="card" *ngFor="let apiario of apiarios; let i = index">
+        <h3>Apiario {{ i + 1 }}</h3>
+        <p><strong>Localização: </strong>{{ apiario.localizacao }}</p>
+        <!-- Adicione mais informações conforme necessário -->
+      </div>
+    </div>
+  </div>
+</div>

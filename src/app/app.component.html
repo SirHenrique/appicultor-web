@@ -1,4 +1,10 @@
+<ng-container *ngIf="!isLoginPage()">
+  <div class="header">
+    <div class="header-content">
+      <img src="../assets/image 3.png" alt="Imagem" class="header-image" />
+    </div>
+  </div>
+</ng-container>
 <div class="app-container">
-  <!-- O router-outlet é o local onde as rotas serão renderizadas -->
   <router-outlet></router-outlet>
 </div>

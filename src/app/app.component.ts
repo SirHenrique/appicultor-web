@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SupabaseService } from '../app/services/supabase.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,11 +9,13 @@ import { SupabaseService } from '../app/services/supabase.service';
 export class AppComponent {
   title = 'appicultor-web';
   public data: any[] = [];
-  constructor(private supabaseService: SupabaseService) { }
+  constructor(private supabaseService: SupabaseService, private router: Router) { }
 
   async ngOnInit(): Promise<void> {
-    const fetchedData = await this.supabaseService.getDataFromTable('produtores');
-    this.data = fetchedData ?? [];
-    console.log(this.data)
+
+  }
+
+  isLoginPage(): boolean {
+    return this.router.url === '/login';
   }
 }

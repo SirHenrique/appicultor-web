@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="container">
+  <img src="../../../../../assets/image 1.png" class="imagem">
+  <div class="form-container">
+    <img src=".../../../../../assets/image 2.png">
+    <div class="flex flex-column gap-1 w-10">
+      <span for="username">Login</span>
+      <input
+          pInputText
+          id="username"
+          [(ngModel)]="email"
+          />
+    </div>
+
+    <div class="flex flex-column w-10 gap-1">
+      <span for="senha">Senha</span>
+      <input
+          pInputText
+          id="senha"
+          type="password"
+          [(ngModel)]="password"
+          />
+    </div>
+    <p-button (onClick)="login()" class="custom-button w-10" label="Logar" />
+
+  </div>
+</div>
+
+

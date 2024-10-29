@@ -1,0 +1,40 @@
+/* Container principal */
+.container {
+  display: flex;
+  height: 100vh; /* Ocupe 100% da altura da tela */
+  width: 100vw; /* Ocupe 100% da largura da tela */
+  margin: 0;
+  padding: 0;
+  align-items: center; /* Centralizar verticalmente */
+}
+
+/* Imagem à esquerda */
+.imagem {
+  width: 85%; /* A imagem ocupa 75% da largura da tela */
+  height: 100%; /* Garante que a imagem ocupe 100% da altura da tela */
+
+}
+
+::ng-deep .p-button {
+  color: white !important;
+  width: 100% !important;
+  margin-top: 20px !important;/* Deixa o texto do botão branco */
+}
+/* Container do formulário de login */
+.form-container {
+  width: 15%; /* O formulário ocupa 25% da largura da tela */
+  height: 100%; /* Garante que o formulário ocupe a altura total */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centralizar verticalmente */
+  align-items: center; /* Alinhar o conteúdo à direita */
+  box-sizing: border-box; /* Garantir que padding seja levado em conta no tamanho total */
+}
+
+.form-container input{
+  width: 100%; /* Faz os inputs ocuparem 100% da largura disponível */
+  max-width: 400px; /* Define uma largura máxima, ajuste conforme necessário */
+  padding: 10px; /* Aumenta o espaçamento interno dos inputs */
+  font-size: 16px; /* Aumenta o tamanho do texto dentro dos inputs */
+}

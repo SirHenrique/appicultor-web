@@ -1,1 +1,54 @@
-<p>home works!</p>
+<div class="container">
+<h1>Produtores</h1>
+
+<p-table
+        #dt
+        [value]="data"
+        dataKey="id"
+        [rows]="10"
+        [rowsPerPageOptions]="[10, 25, 50]"
+
+        [paginator]="true"
+        [globalFilterFields]="['nome', 'email', 'representative.name', 'status']"
+        [tableStyle]="{ 'min-width': '75rem' }"
+    >
+        <ng-template pTemplate="caption">
+            <div class="flex">
+              <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($any($event.target).value, 'contains')" placeholder="Produtor" />
+            </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:22%">Nome</th>
+                <th style="width:22%">Email</th>
+                <th style="width:22%">Estado</th>
+                <th style="width:22%">Município</th>
+
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-produtor>
+            <tr class="clickable-row" (click)="navigateToDetail(produtor.id)">
+                <td>
+                    {{ produtor.nome }}
+                </td>
+                <td>
+                  {{ produtor.email }}
+              </td>
+                <td>
+                  {{ produtor.estado }}
+                </td>
+                <td>
+                  {{ produtor.municipio }}
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="5">No customers found.</td>
+            </tr>
+        </ng-template>
+</p-table>
+</div>
