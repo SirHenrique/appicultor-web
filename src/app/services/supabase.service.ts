@@ -90,6 +90,43 @@ export class SupabaseService {
     return data;
   }
 
+  async getDadosColmeia(id: string) {
+    const {data, error} = await this.supabase
+    .from("colmeia")
+    .select('*')
+    .eq('id',id)
+    .eq('status',true)
+    .single()
+
+    return data;
+  }
+
+
+  async getRelatorios(id: string) {
+    const { data, error } = await this.supabase
+    .from('relatorio')
+    .select(`
+      *,
+      relatorioColmeia(*)
+    `)
+    .eq('apiario_id', id)
+    .order('dataVisita', { ascending: false });
+
+    return data
+  }
+
+  async getRelatoriosColmeias(id: string) {
+    const { data, error } = await this.supabase
+    .from('relatorioColmeia')
+    .select(`
+      *,
+      relatorio(dataVisita)
+    `)
+    .eq('colmeia_id', id)
+
+    return data?.sort((a, b) => new Date(b.relatorio.dataVisita).getTime() - new Date(a.relatorio.dataVisita).getTime());
+  }
+
   async getDadosColmeias(id: string) {
     const {data, error} = await this.supabase
     .from("colmeia")

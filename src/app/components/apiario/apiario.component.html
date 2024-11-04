@@ -1,11 +1,11 @@
 <div class="back-button" >
-  <i (click)="goBack()" class="pi pi-arrow-left" style="color: orange; font-size: 52px;"></i> <!-- Ícone da seta -->
+  <i (click)="goBack()" class="pi pi-arrow-left" style="color: orange; font-size: 52px;"></i>
 </div>
 
 <div class="content">
   <div class="grid-container col-12">
     <div class="grid col-12 flex gap-5 justify-content-center">
-      <div class="col-4">
+      <div class="col-5">
         <span class="col-12">Localização</span>
         <div class="col-12 py-0">
           <input [(ngModel)]="dadosApiario.localizacao" [disabled]="true" [style]="'width:100%'" pInputText>
@@ -20,22 +20,22 @@
       </div>
 
       <div class="col-2 align-center">
-        <p-button label="Ver Relatórios"></p-button>
+        <p-button (click)="navigateToRelatorio(apiarioId!)" label="Ver Relatórios"></p-button>
       </div>
 
     </div>
 
     <!-- Título abaixo da grid -->
-    <h1 style="text-align: center; margin-top: 10px; color: #DD8231;font-size: 60px;">Apiários</h1>
+    <h1 style="text-align: center; margin-top: 10px; color: #DD8231;font-size: 60px;">Colmeias</h1>
     <div class="flex flex-wrap gap-3 justify-content-center">
       <!-- Cards dos apiários -->
-      <div class="card" *ngFor="let colmeia of colmeias; let i = index">
+      <div (click)="navigateToColmeia(colmeia.id!)"class="card" *ngFor="let colmeia of colmeias; let i = index">
         <h3>Colmeia {{ i + 1 }}</h3>
         <p><strong>Quantidade Abelhas: </strong>{{ colmeia.qtdAbelhas }}</p>
         <p><strong>Espécie: </strong>{{ colmeia.especie }}</p>
         <p><strong>Tipo de Quadro: </strong>{{ colmeia.tipoQuadros}}</p>
         <p><strong>Quantidade de Quadro: </strong>{{ colmeia.qtdQuadros}}</p>
-        <!-- Adicione mais informações conforme necessário -->
+
       </div>
     </div>
   </div>

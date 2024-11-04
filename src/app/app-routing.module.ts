@@ -5,6 +5,8 @@ import { HomeComponent } from './components/home/home.component'; // Página pó
 import { AuthGuard } from './guards/auth.guard'; // Guard para proteger a rota
 import { ProdutorComponent } from './components/produtor/produtor.component';
 import { ApiarioComponent } from './components/apiario/apiario.component';
+import { RelatorioComponent } from './components/relatorio/relatorio.component';
+import { ColmeiaComponent } from './components/colmeia/colmeia.component';
 
 // , canActivate: [AuthGuard]
 const routes: Routes = [
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'produtor/:id', component: ProdutorComponent },
   {path: 'apiario/:id', component: ApiarioComponent},
+  {path: 'relatorio/:id', component: RelatorioComponent},
+  {path: 'colmeia/:id', component: ColmeiaComponent},
    // Rota protegida
   { path: '**', redirectTo: 'login' } // Redireciona qualquer rota desconhecida para login
 ];

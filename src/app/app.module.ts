@@ -33,6 +33,8 @@ import { AccordionModule } from 'primeng/accordion';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ProdutorComponent } from './components/produtor/produtor.component';
 import { ApiarioComponent } from './components/apiario/apiario.component';
+import { RelatorioComponent } from './components/relatorio/relatorio.component';
+import { ColmeiaComponent } from './components/colmeia/colmeia.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ApiarioComponent } from './components/apiario/apiario.component';
     LoginComponent,
     HomeComponent,
     ProdutorComponent,
-    ApiarioComponent
+    ApiarioComponent,
+    RelatorioComponent,
+    ColmeiaComponent
   ],
   imports: [
     BrowserModule,

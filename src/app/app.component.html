@@ -1,10 +1,12 @@
-<ng-container *ngIf="!isLoginPage()">
-  <div class="header">
-    <div class="header-content">
-      <img src="../assets/image 3.png" alt="Imagem" class="header-image" />
+<div [class.no-scroll]="isLoginPage()">
+  <ng-container *ngIf="!isLoginPage()">
+    <div class="header">
+      <div class="header-content">
+        <img src="../assets/image 3.png" alt="Imagem" class="header-image" />
+      </div>
     </div>
+  </ng-container>
+  <div class="app-container">
+    <router-outlet></router-outlet>
   </div>
-</ng-container>
-<div class="app-container">
-  <router-outlet></router-outlet>
 </div>

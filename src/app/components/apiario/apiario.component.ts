@@ -29,4 +29,12 @@ export class ApiarioComponent {
 goBack(): void {
     this.location.back();// Navega para a tela anterior
   }
+
+  navigateToRelatorio(apiarioId: string): void {
+    this.router.navigate(['/relatorio', apiarioId]); // Redireciona para a nova rota
+  }
+
+  navigateToColmeia(colmeiaId: string): void {
+    this.router.navigate(['/colmeia', colmeiaId]); // Redireciona para a nova rota
+  }
 }

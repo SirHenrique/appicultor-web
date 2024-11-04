@@ -1,0 +1,18 @@
+<div class="back-button" >
+  <i (click)="goBack()" class="pi pi-arrow-left" style="color: orange; font-size: 52px;"></i> <!-- Ícone da seta -->
+</div>
+
+<div class="content">
+  <h1>Relatórios do Apiário</h1>
+
+  <div class="reports-container">
+    <div *ngFor="let relatorio of dadosRelatorio;">
+      <p-panel [toggleable]="true" [header]="relatorio.dataVisita" [collapsed]="true">
+        <div class="grid">
+          
+        </div>
+      </p-panel>
+    </div>
+  </div>
+
+</div>
