@@ -1,4 +1,4 @@
-<div class="back-button" >
+<div class="back-button">
   <i (click)="goBack()" class="pi pi-arrow-left" style="color: orange; font-size: 52px;"></i> <!-- Ícone da seta -->
 </div>
 
@@ -9,7 +9,96 @@
     <div *ngFor="let relatorio of dadosRelatorio;">
       <p-panel [toggleable]="true" [header]="relatorio.dataVisita" [collapsed]="true">
         <div class="grid">
-          
+          <div class="col-6">
+            <span class="col-12">Objetivo da Visita</span>
+            <div class="col-12 py-0">
+              <input [(ngModel)]="relatorio.objVisita" [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <span class="col-12">Situação Apiário</span>
+            <div class="col-12 py-0">
+              <input [(ngModel)]="relatorio.sitApiario" [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+          <div class="col-6">
+            <span class="col-12">Tarefas Realizadas</span>
+            <div class="col-12 py-0">
+              <textarea rows="5" cols="30" [(ngModel)]="relatorio.tarRealizadas" [disabled]="true" pInputTextarea [autoResize]="true" [style]="'width:100%'">
+              </textarea>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <span class="col-12">Mortalidade</span>
+            <div class="col-12 py-0">
+              <input [ngModel]="relatorio.mortalidade ? 'Sim' : 'Não' " [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <span class="col-12">Ocorrência de Sintomas e Pragas</span>
+            <div class="col-12 py-0">
+              <input [ngModel]="relatorio.ocorrenciaSintomas ? 'Sim' : 'Não' " [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <span class="col-12">Sintomas/Doenças ou Pragas</span>
+            <div class="col-12 py-0">
+              <textarea rows="5" cols="30" [(ngModel)]="relatorio.descSintomas" [disabled]="true" pInputTextarea [autoResize]="true" [style]="'width:100%'">
+              </textarea>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <span class="col-12">Descrição Situação</span>
+            <div class="col-12 py-0">
+              <textarea rows="5" cols="30" [(ngModel)]="relatorio.descSituacao" [disabled]="true" pInputTextarea [autoResize]="true" [style]="'width:100%'">
+              </textarea>
+            </div>
+          </div>
+
+          <!-- CRIAR COLMEIAS AFETADAS -->
+
+
+
+          <div class="col-6">
+            <span class="col-12">Realizou Tratamento ou Medida de Manejo</span>
+            <div class="col-12 py-0">
+              <input [ngModel]="relatorio.tratamento ? 'Sim' : 'Não' " [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <span class="col-12">Especifique</span>
+            <div class="col-12 py-0">
+              <textarea rows="5" cols="30" [(ngModel)]="relatorio.descTratamento" [disabled]="true" pInputTextarea [autoResize]="true" [style]="'width:100%'">
+              </textarea>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <span class="col-12">Os procedimentos de limpeza foram seguidos</span>
+            <div class="col-12 py-0">
+              <input [ngModel]="relatorio.limpeza ? 'Sim' : 'Não' " [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+          <div class="col-6">
+            <span class="col-12">Veículo estava em conformidade</span>
+            <div class="col-12 py-0">
+              <input [ngModel]="relatorio.conformidade ? 'Sim' : 'Não' " [disabled]="true" [style]="'width:100%'" pInputText>
+            </div>
+          </div>
+          <div class="col-12">
+            <span class="col-12">Situação das Colmeias ou da Coleta</span>
+          </div>
+          <div class="col-4 card" *ngFor="let relatorioColmeia of relatorio.relatorioColmeia">
+            <h3>Colmeia {{relatorioColmeia.index}}</h3>
+            <p>Situacao: {{relatorioColmeia.situacao}}</p>
+            <p>Quadros Coletados: {{relatorioColmeia.quaColetados}}</p>
+          </div>
         </div>
       </p-panel>
     </div>
