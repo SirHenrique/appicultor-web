@@ -24,6 +24,7 @@ export class RelatorioComponent {
 
     for (let relatorio of this.dadosRelatorio) {
       const dataFormatada = formatDate(relatorio.dataVisita ?? '', 'dd/MM/yyyy', 'en-US');
+      relatorio.colmeiasAfetadas = JSON.parse(relatorio.colmeiasAfetadas)
       relatorio.dataVisita = dataFormatada;
     }
     console.log(this.dadosRelatorio)
